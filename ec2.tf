@@ -5,6 +5,7 @@ resource "aws_instance" "server1" {
   availability_zone = "us-east-1a"
   subnet_id = aws_subnet.private1.id
   user_data = file("code.sh")
+  key_name = "w10key"
   tags = {
     Name = "server1"
   }
@@ -17,6 +18,7 @@ resource "aws_instance" "server2" {
   availability_zone = "us-east-1b"
   subnet_id = aws_subnet.private2.id
   user_data = file("code.sh")
+  key_name = "w10key"
   tags={
     Name = "server2"
   }

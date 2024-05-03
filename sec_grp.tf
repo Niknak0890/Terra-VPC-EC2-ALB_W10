@@ -1,5 +1,6 @@
+#Create security group one
 resource "aws_security_group" "sg1" {
-    name = "Terraform-sg"
+    name = "terraform-sg"
     description = "Allow ssh and httpd"
     vpc_id = aws_vpc.vpc1.id
     
@@ -11,7 +12,7 @@ resource "aws_security_group" "sg1" {
         protocol = "tcp"
         #cidr_blocks = ["0.0.0.0/0"]
             #limiting access to just the lb (below) via this port
-        security_groups = [ aws_security_group.sg2.name ] 
+        security_groups = [ aws_security_group.sg2.id ] 
             #allowing access to lb via sg2 (sg for load balancer)
     }
 
@@ -46,7 +47,7 @@ resource "aws_security_group" "sg1" {
 }
 
 resource "aws_security_group" "sg2" {
-    name = "Terraform-sg-lb"
+    name = "terraform-sg-lb"
     description = "Allow ssh and httpd"
     vpc_id = aws_vpc.vpc1.id
 
