@@ -67,6 +67,6 @@ resource "aws_security_group" "sg2" {
         cidr_blocks = ["0.0.0.0/0"]
     }
   tags= {
-    env = "Dev"
+    env = "Dev2"
   } 
 }
